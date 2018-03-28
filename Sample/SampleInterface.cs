@@ -10,7 +10,7 @@ namespace Sample
         private List<EntityResponseStatus> lstResponse = new List<EntityResponseStatus>();
         public EntityShipment Pull(EntityShipment objES)
         {
-            try
+            try 
             {
                 objES.objShipTo = GetShipTo();
                 objES.objDetails.strPONumber = "PONumber";

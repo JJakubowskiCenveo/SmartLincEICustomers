@@ -186,6 +186,10 @@ namespace SAP
                 objReference = new EntityReference();
                 if (dr["PlantNumber"] != DBNull.Value) objReference.strReferenceValue = dr["PlantNumber"].ToString().Trim();
                 objSD.lstReference.Add(objReference);
+
+                objReference = new EntityReference();
+                if (dr["ThirdPartyAccount"] != DBNull.Value) objReference.strReferenceValue = dr["ThirdPartyAccount"].ToString().Trim();
+                objSD.lstReference.Add(objReference);
             }
             catch (Exception ex)
             {
@@ -289,11 +293,11 @@ namespace SAP
             int intPlant = 0;
             int intCarrier = 0;
             string strSQLSource = "PSSAP";
-//            string strSQLSource = objES.objDetails.lstReference[0].strReferenceValue;
 //            string strSQLSource = objES.objDetails.objMiscellaneous.strMisc1;
-//            Int32.TryParse(objES.objDetails.lstReference[1].strReferenceValue, out intBOL);
-//            Int32.TryParse(objES.objDetails.lstReference[2].strReferenceValue, out intCarrier);
-//            Int32.TryParse(objES.objDetails.lstReference[3].strReferenceValue, out intPlant);
+            string strThirdParty = objES.objDetails.objMiscellaneous.strMisc5;
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc2, out intBOL);
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc3, out intCarrier);
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc4, out intPlant);
             int intTotalContainers = objES.lstContainer.Count();
             string strSQLSystem = "";
             switch (strSQLSource.ToUpper())
@@ -356,8 +360,8 @@ namespace SAP
                     sqlCMD.Parameters.AddWithValue("@ProcessDate", " ");
                     sqlCMD.Parameters.AddWithValue("@TerminalID", " ");
                     sqlCMD.Parameters.AddWithValue("@ProcessStatus", " ");
-//                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(objES.objBillTo.strAccountNumber));
-                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", " ");
+                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(strThirdParty));
+//                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", " ");
                     sqlCMD.Parameters.AddWithValue("@CustomerReference", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailAddress1", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailNotify1", " ");
@@ -440,10 +444,11 @@ namespace SAP
             int intPlant = 0;
             int intCarrier = 0;
             int intTotalContainers = objES.lstContainer.Count();
-//            string strSQLSource = objES.objDetails.objMiscellaneous.strMisc1;
-//            Int32.TryParse(objES.objDetails.lstReference[1].strReferenceValue, out intBOL);
-//            Int32.TryParse(objES.objDetails.lstReference[2].strReferenceValue, out intCarrier);
-//            Int32.TryParse(objES.objDetails.lstReference[3].strReferenceValue, out intPlant);
+            //            string strSQLSource = objES.objDetails.objMiscellaneous.strMisc1;
+            string strThirdParty = objES.objDetails.objMiscellaneous.strMisc5;
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc2, out intBOL);
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc3, out intCarrier);
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc4, out intPlant);
             string strSQLSource = "PSSAP";
             string strSQLSystem = "";
             switch (strSQLSource.ToUpper())
@@ -507,8 +512,7 @@ namespace SAP
                     sqlCMD.Parameters.AddWithValue("@ProcessDate", " ");
                     sqlCMD.Parameters.AddWithValue("@TerminalID", " ");
                     sqlCMD.Parameters.AddWithValue("@ProcessStatus", " ");
-//                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(objES.objBillTo.strAccountNumber));
-                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", " ");
+                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(strThirdParty));
                     sqlCMD.Parameters.AddWithValue("@CustomerReference", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailAddress1", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailNotify1", " ");

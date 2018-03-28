@@ -79,9 +79,10 @@ namespace CMS
             int intCarrier = 0;
             int intPlant = 0;
             string strSQLSource = "CMS";
-            Int32.TryParse(objES.lstMiscellaneous[x].strMisc5.Substring(0, 10), out intBOL);
-            Int32.TryParse(objES.lstMiscellaneous[x].strMisc5.Substring(10, 10), out intCarrier);
-            Int32.TryParse(objES.lstMiscellaneous[x].strMisc5.Substring(20, 10), out intPlant);
+            string strThirdParty = objES.objDetails.objMiscellaneous.strMisc5;
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc2, out intBOL);
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc3, out intCarrier);
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc4, out intPlant);
             string strSQLSystem = "";
             switch (strSQLSource.ToUpper())
             {
@@ -143,7 +144,7 @@ namespace CMS
                     sqlCMD.Parameters.AddWithValue("@ProcessDate", " ");
                     sqlCMD.Parameters.AddWithValue("@TerminalID", " ");
                     sqlCMD.Parameters.AddWithValue("@ProcessStatus", " ");
-                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", " ");
+                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(strThirdParty));
                     sqlCMD.Parameters.AddWithValue("@CustomerReference", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailAddress1", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailNotify1", " ");
@@ -221,9 +222,10 @@ namespace CMS
             int intCarrier = 0;
             int intPlant = 0;
             string strSQLSource = "CMS";
-            Int32.TryParse(objES.lstMiscellaneous[x].strMisc5.Substring(0, 10), out intBOL);
-            Int32.TryParse(objES.lstMiscellaneous[x].strMisc5.Substring(10, 10), out intCarrier);
-            Int32.TryParse(objES.lstMiscellaneous[x].strMisc5.Substring(20, 10), out intPlant);
+            string strThirdParty = objES.objDetails.objMiscellaneous.strMisc5;
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc2, out intBOL);
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc3, out intCarrier);
+            Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc4, out intPlant);
             string strSQLSystem = "";
             switch (strSQLSource.ToUpper())
             {
@@ -285,7 +287,7 @@ namespace CMS
                     sqlCMD.Parameters.AddWithValue("@ProcessDate", " ");
                     sqlCMD.Parameters.AddWithValue("@TerminalID", " ");
                     sqlCMD.Parameters.AddWithValue("@ProcessStatus", " ");
-                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", " ");
+                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(strThirdParty));
                     sqlCMD.Parameters.AddWithValue("@CustomerReference", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailAddress1", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailNotify1", " ");
@@ -456,6 +458,10 @@ namespace CMS
 
                 objReference = new EntityReference();
                 if (dr["PlantNumber"] != DBNull.Value) objReference.strReferenceValue = dr["PlantNumber"].ToString().Trim();
+                objSD.lstReference.Add(objReference);
+
+                objReference = new EntityReference();
+                if (dr["ThirdPartyAccount"] != DBNull.Value) objReference.strReferenceValue = dr["ThirdPartyAccount"].ToString().Trim();
                 objSD.lstReference.Add(objReference);
             }
             catch (Exception ex)

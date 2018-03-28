@@ -10,7 +10,7 @@ using SmartLincInterface;
 namespace Lexis
 {
     public class LexisInterface
-    {
+    { 
         private List<EntityResponseStatus> lstResponse = new List<EntityResponseStatus>();
         private SqlConnection objSQLCon;
 

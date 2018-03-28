@@ -78,7 +78,7 @@ namespace LexisGlobal
                 return false;
             }
         }
-
+ 
         private SqlConnection GetSqlConnection(EntityConnection objEC)
         {
             try
