@@ -6,7 +6,6 @@ using System.ServiceModel;
 using System.ServiceModel.Web;
 using System.Text;
 using SmartLincInterface;
-using Sample;
 using CMS;
 using Lexis;
 using LexisGlobal;
@@ -28,10 +27,6 @@ namespace SmartLincServiceTemplate
         {
             switch (objRequest.ToolKit.ID.ToUpper())
             {
-                case "SAMPLE":
-                    SampleInterface objSample = new SampleInterface();
-                    objRequest = objSample.Pull(objRequest);
-                    break;
                 case "LEXIS":
                     LexisInterface objLexis = new LexisInterface();
                     objRequest = objLexis.Pull(objRequest);
@@ -55,10 +50,6 @@ namespace SmartLincServiceTemplate
         {
             switch (objRequest.ToolKit.ID.ToUpper())
             {
-                case "SAMPLE":
-                    SampleInterface objSample = new SampleInterface();
-                    objRequest = objSample.Putback(objRequest);
-                    break;
                 case "LEXIS":
                     LexisInterface objLexis = new LexisInterface();
                     objRequest = objLexis.Putback(objRequest);
@@ -82,10 +73,6 @@ namespace SmartLincServiceTemplate
         {
             switch (objRequest.ToolKit.ID.ToUpper())
             {
-                case "SAMPLE":
-                    SampleInterface objSample = new SampleInterface();
-                    objRequest = objSample.Void(objRequest);
-                    break;
                 case "LEXIS":
                     LexisInterface objLexis = new LexisInterface();
                     objRequest = objLexis.Void(objRequest);

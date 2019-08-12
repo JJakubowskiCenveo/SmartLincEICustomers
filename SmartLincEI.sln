@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLincEI", "SmartLincEINew\SmartLincEI.csproj", "{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}"
 EndProject
@@ -14,8 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexisGlobal", "LexisGlobal\LexisGlobal.csproj", "{1548C927-F91F-4CC5-BCA7-7EE12C03CFFF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAP", "ClassLibrary1\SAP.csproj", "{5941FF2E-955B-404B-81C6-922BF7913516}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -95,20 +93,11 @@ Global
 		{5941FF2E-955B-404B-81C6-922BF7913516}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5941FF2E-955B-404B-81C6-922BF7913516}.Release|x86.ActiveCfg = Release|Any CPU
 		{5941FF2E-955B-404B-81C6-922BF7913516}.Release|x86.Build.0 = Release|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Debug|x86.Build.0 = Debug|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Release|Any CPU.Build.0 = Release|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Release|x86.ActiveCfg = Release|Any CPU
-		{662113E0-C0D7-4852-96CB-2AF42E3C6BA3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {837B4C72-620A-414A-A2C6-CAE48E7EC259}
 	EndGlobalSection
 EndGlobal

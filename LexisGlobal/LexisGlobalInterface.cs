@@ -78,7 +78,7 @@ namespace LexisGlobal
                 return false;
             }
         }
- 
+
         private SqlConnection GetSqlConnection(EntityConnection objEC)
         {
             try
@@ -121,6 +121,7 @@ namespace LexisGlobal
                 objES.objDetails = FillDetails(dtHeader.Rows[0], objES.objDetails);
                 objES.objShipMethod = GetShipViaCode(dtHeader.Rows[0]);
                 objES.objShipFrom = FillShipFrom(dtHeader.Rows[0]);
+                objES.objBillTo = FillBillTo(dtHeader.Rows[0]);
             }
             else
                 lstResponse.Add(SetResponse("No Shipment Information Found!", "No Shipment Information Found!", ResponseStatusType.CRITICAL));
@@ -180,14 +181,6 @@ namespace LexisGlobal
                 if (dr["AttentionTo"] != DBNull.Value) objEntityAddress.strContactName = dr["AttentionTo"].ToString().Trim();
                 if (dr["SenderEmailAddress1"] != DBNull.Value) objEntityAddress.strEmailAddress = dr["SenderEmailAddress1"].ToString().Trim();
                 if (dr["Country"] != DBNull.Value) objEntityAddress.strCountryCode = dr["Country"].ToString().Trim();
-                if (dr["SourceSystem"] != DBNull.Value)
-                {
-                    if (dr["SourceSystem"].ToString().Trim() != "LexisVista")
-                    {
-                        objEntityAddress.strFaxNumber = dr["SourceSystem"].ToString().Trim();
-                    }
-                }
-
             }
             catch (Exception ex)
             {
@@ -196,6 +189,27 @@ namespace LexisGlobal
 
             return objEntityAddress;
         }
+
+        private EntityAddress FillBillTo(DataRow dr)
+        {
+            EntityAddress objBT = new EntityAddress();
+            try
+            {
+                if (dr["ThirdPartyAccount"] != DBNull.Value)
+                {
+                    if (dr["ZipCode"] != DBNull.Value) objBT.strPostalCode = dr["ZipCode"].ToString().Trim();
+                    if (dr["Country"] != DBNull.Value) objBT.strCountryCode = dr["Country"].ToString().Trim();
+                    if (dr["ThirdPartyAccount"] != DBNull.Value) objBT.strAccountNumber = dr["ThirdPartyAccount"].ToString().Trim();
+                };
+            }
+            catch (Exception ex)
+            {
+                lstResponse.Add(SetResponse("Error Filling In Bill To Details!", ex.Message, ResponseStatusType.WARNING));
+            }
+
+            return objBT;
+        }
+
 
         private EntityShipmentDetails FillDetails(DataRow dr, EntityShipmentDetails objSD)
         {
@@ -269,10 +283,8 @@ namespace LexisGlobal
         {
             DataTable dtHeader;
             bool InsertStatus;
-            string SQLSystem;
             int x = 0;
             int intTotalContainers = objES.lstContainer.Count();
-            SQLSystem = "ProcGlobal";
             dtHeader = GetShipmentInformation(objES.objDetails.strDeliveryDocNumber);
             do
             {
@@ -298,8 +310,8 @@ namespace LexisGlobal
                 intTotalContainers + ", " +                                    // TotalContainers
                 (x + 1) + ", " +                                               // ThisContainer
                 objES.lstContainer[x].objRates.dblTotalBillablePrice + ", " +   // CarrierCharge
-                objES.lstContainer[x].objRates.dblTotalPublishedPrice + ", '" + // ListCharge
-                SQLSystem + "'," +                                              // SourceSystem
+                objES.lstContainer[x].objRates.dblTotalPublishedPrice + ", " + // ListCharge
+                "'ProcGlobal'," +                                              // SourceSystem
                 "2, '" +                                                       // SQLStatus
                 objES.dtShipDate.ToString("MM/dd/yyyy") + "', '" +             // ShipDate
                 DateTime.Now + "', " +                                         // LastModified
@@ -360,8 +372,6 @@ namespace LexisGlobal
             bool UpdateStatus;
             int x = 0;
             int intTotalContainers = objES.lstContainer.Count();
-            string SQLSystem;
-            SQLSystem = "ProcGlobal";
             dtHeader = GetShipmentInformation(objES.objDetails.strDeliveryDocNumber);
             do
             {
@@ -387,8 +397,8 @@ namespace LexisGlobal
                 intTotalContainers + ", " +                                    // TotalContainers
                 (x + 1) + ", " +                                               // ThisContainer
                 objES.lstContainer[x].objRates.dblTotalDiscountedPrice + ", " +  // CarrierCharge
-                objES.lstContainer[x].objRates.dblTotalPublishedPrice + ", '" + // ListCharge
-                SQLSystem + "'," +                                             // SourceSystem
+                objES.lstContainer[x].objRates.dblTotalPublishedPrice + ", " + // ListCharge
+                "'ProcGlobal'," +                                              // SourceSystem
                 "2, '" +                                                       // SQLStatus
                 objES.dtShipDate.ToString("MM/dd/yyyy") + "', '" +             // ShipDate
                 DateTime.Now + "', " +                                         // LastModified

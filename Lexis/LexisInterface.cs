@@ -10,7 +10,7 @@ using SmartLincInterface;
 namespace Lexis
 {
     public class LexisInterface
-    { 
+    {
         private List<EntityResponseStatus> lstResponse = new List<EntityResponseStatus>();
         private SqlConnection objSQLCon;
 
@@ -130,7 +130,7 @@ namespace Lexis
         private DataTable GetShipmentInformation(string strDeliveryDocNumber)
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("Select * from dbo.Shipments where LTRIM(RTRIM(Reference1)) =  '" + strDeliveryDocNumber.Trim() + "'" + "and SQLStatus = 1");
+            sb.Append("Select * from dbo.Shipments where LTRIM(RTRIM(Reference1)) =  '" + strDeliveryDocNumber.Trim() + "'" + "and SourceSystem = 'LexisVista' and SQLStatus = 1");
             return ExecuteSelectQuery(sb.ToString());
         }
 
@@ -248,7 +248,7 @@ namespace Lexis
                 if (dr["ReturnAddressZip"] != DBNull.Value) objSF.strPostalCode = dr["ReturnAddressZip"].ToString().Trim();
                 if (dr["ReturnAddressAttention"] != DBNull.Value) objSF.strContactName = dr["ReturnAddressAttention"].ToString().Trim();
                 if (dr["ReturnAddressPhone"] != DBNull.Value) objSF.strPhoneNumber = dr["ReturnAddressPhone"].ToString().Trim();
-                if (objSF.strCompanyName == "LexisNexis Matthew Bender") objSF.strEmailAddress = "Kimberly.Agee@lexisnexis.com";
+                if (dr["ReturnAddressEmail"] != DBNull.Value) objSF.strEmailAddress = dr["ReturnAddressEmail"].ToString().Trim();
             }
             catch (Exception ex)
             {
