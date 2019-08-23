@@ -24,13 +24,17 @@ namespace TestHarness
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             string strInterface = lstInterface.SelectedItem.ToString().Trim();
-            EntityShipment objES = new EntityShipment();
-            objES.objDetails = new EntityShipmentDetails();
-            objES.objDetails.strDeliveryDocNumber = txtOrder.Text;
-           
+            EntityShipment objES = new EntityShipment
+            {
+                objDetails = new EntityShipmentDetails
+                {
+                    strDeliveryDocNumber = txtOrder.Text
+                }
+            };
+
             EntityConnection objConnection = new EntityConnection();
             if (radioButtonDev.Checked == true)
             {
@@ -171,7 +175,7 @@ namespace TestHarness
             }
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             string strInterface = lstInterface.SelectedItem.ToString().Trim();
             EntityShipment objES = new EntityShipment();
@@ -206,7 +210,7 @@ namespace TestHarness
             }
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void Button3_Click(object sender, EventArgs e)
         {
             string strInterface = lstInterface.SelectedItem.ToString().Trim();
             EntityShipment objES = new EntityShipment();

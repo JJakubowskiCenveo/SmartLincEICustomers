@@ -288,7 +288,7 @@ namespace LexisGlobal
             dtHeader = GetShipmentInformation(objES.objDetails.strDeliveryDocNumber);
             do
             {
-                string str = "INSERT INTO dbo.Shipments (Reference1, Reference2, Reference3, Reference4, Reference5, VoidIndicator, CompanyName, AttentionTo, Address1, Address2, Address3, City, ShipState, ZipCode, Country, ShippedBy, TrackingNumber, ShipWeight, TotalContainers, ThisContainer, CarrierCharge, ListCharge, SourceSystem, SQLStatus, ShipDate, LastModified, BOL, CarrierNumber, PlantNumber, PhoneNumber, ServiceType, CarrierName, ServiceName, SenderAccount, AdditionalCharge, ProcessDate, TerminalID, ProcessStatus, ThirdPartyAccount, CustomerReference, SenderEmailAddress1, SenderEmailNotify1, SenderEmailAddress2, SenderEmailNotify2, SenderEmailAddress3, SenderEmailNotify3, SenderEmailAddress4, SenderEmailNotify4, ResidentialStatus, EmailText, SignatureOption, SaturdayDelivery, PaymentType, BillToCompany, BillToAttention, BillToAddress1, BillToAddress2, BillToCity, BillToState, BillToZip, ReturnAddressCompany, ReturnAddressAttention, ReturnAddressLine1, ReturnAddressLine2, ReturnAddressCity, ReturnAddressState, ReturnAddressZip, Instructions) VALUES ('" +
+                string str = "INSERT INTO dbo.Shipments (Reference1, Reference2, Reference3, Reference4, Reference5, VoidIndicator, CompanyName, AttentionTo, Address1, Address2, Address3, City, ShipState, ZipCode, Country, ShippedBy, TrackingNumber, ShipWeight, TotalContainers, ThisContainer, CarrierCharge, ListCharge, SourceSystem, SQLStatus, ShipDate, LastModified, BOL, CarrierNumber, PlantNumber, PhoneNumber, ServiceType, CarrierName, ServiceName, SenderAccount, AdditionalCharge, ProcessDate, TerminalID, ProcessStatus, ThirdPartyAccount, CustomerReference, SenderEmailAddress1, SenderEmailNotify1, SenderEmailAddress2, SenderEmailNotify2, SenderEmailAddress3, SenderEmailNotify3, SenderEmailAddress4, SenderEmailNotify4, ResidentialStatus, EmailText, SignatureOption, SaturdayDelivery, PaymentType, BillToCompany, BillToAttention, BillToAddress1, BillToAddress2, BillToCity, BillToState, BillToZip, ReturnAddressCompany, ReturnAddressAttention, ReturnAddressLine1, ReturnAddressLine2, ReturnAddressCity, ReturnAddressState, ReturnAddressZip, ReturnAddressPhone, ReturnAddressEmail, Instructions) VALUES ('" +
                 objES.objDetails.strDeliveryDocNumber + "', '" +               // Reference1
                 objES.objDetails.strPONumber + "', '" +                        // Reference2 
                 objES.objDetails.strInvoiceNumber + "', '" +                   // Reference3
@@ -356,6 +356,8 @@ namespace LexisGlobal
                 objES.objShipFrom.strCity + "', '" +                           // ReturnAddressCity
                 objES.objShipFrom.strState + "', '" +                          // ReturnAddressState
                 objES.objShipFrom.strPostalCode + "', '" +                     // ReturnAddressZip
+                objES.objShipFrom.strPhoneNumber + "', '" +                    // ReturnAddressPhone
+                objES.objShipFrom.strEmailAddress + "', '" +                   // ReturnAddressEmail
                 " " + "'" +                                                    // Instructions
                 ")";
 
@@ -367,7 +369,6 @@ namespace LexisGlobal
 
         private bool UpdateData(EntityShipment objES)
         {
-            // string str = "INSERT INTO dbo.Shipments (Reference1, Reference2, Reference3, Reference4, Reference5, BOL, CarrierNumber, PlantNumber, PhoneNumber, TrackingNumber, ServiceType, VoidIndicator, CompanyName, AttentionTo, Address1, Address2, Address3, City, ShipState, ZipCode, Country, ShipWeight, CarrierCharge, ListCharge, AdditionalCharge, ProcessDate, TerminalID, ProcessStatus, ThirdPartyAccount, CustomerReference, SenderEmailAddress1, SenderEmailNotify1, SenderEmailAddress2, SenderEmailNotify2, SenderEmailAddress3, SenderEmailNotify3, SenderEmailAddress4, SenderEmailNotify4, ResidentialStatus, EmailText, SignatureOption, SaturdayDelivery, PaymentType, BillToCompany, BillToAttention, BillToAddress1, BillToAddress2, BillToCity, BillToState, BillToZip, ReturnAddressCompany, ReturnAddressAttention, ReturnAddressLine1, ReturnAddressLine2, ReturnAddressCity, ReturnAddressState, ReturnAddressZip, ShipDate, SourceSystem, SQLStatus) VALUES (Reference1, Reference2, Reference3, Reference4, Reference5, BOL, CarrierNumber, PlantNumber, PhoneNumber, TrackingNumber, ServiceType, VoidIndicator, CompanyName, AttentionTo, Address1, Address2, Address3, City, ShipState, ZipCode, Country, ShipWeight, CarrierCharge, ListCharge, AdditionalCharge, ProcessDate, TerminalID, ProcessStatus, ThirdPartyAccount, CustomerReference, SenderEmailAddress1, SenderEmailNotify1, SenderEmailAddress2, SenderEmailNotify2, SenderEmailAddress3, SenderEmailNotify3, SenderEmailAddress4, SenderEmailNotify4, ResidentialStatus, EmailText, SignatureOption, SaturdayDelivery, PaymentType, BillToCompany, BillToAttention, BillToAddress1, BillToAddress2, BillToCity, BillToState, BillToZip, ReturnAddressCompany, ReturnAddressAttention, ReturnAddressLine1, ReturnAddressLine2, ReturnAddressCity, ReturnAddressState, ReturnAddressZip, ShipDate, SourceSystem, SQLStatus)";
             DataTable dtHeader;
             bool UpdateStatus;
             int x = 0;
@@ -375,7 +376,7 @@ namespace LexisGlobal
             dtHeader = GetShipmentInformation(objES.objDetails.strDeliveryDocNumber);
             do
             {
-                string str = "INSERT INTO dbo.Shipments (Reference1, Reference2, Reference3, Reference4, Reference5, VoidIndicator, CompanyName, AttentionTo, Address1, Address2, Address3, City, ShipState, ZipCode, Country, ShippedBy, TrackingNumber, ShipWeight, TotalContainers, ThisContainer, CarrierCharge, ListCharge, SourceSystem, SQLStatus, ShipDate, LastModified, BOL, CarrierNumber, PlantNumber, PhoneNumber, ServiceType, CarrierName, ServiceName, SenderAccount, AdditionalCharge, ProcessDate, TerminalID, ProcessStatus, ThirdPartyAccount, CustomerReference, SenderEmailAddress1, SenderEmailNotify1, SenderEmailAddress2, SenderEmailNotify2, SenderEmailAddress3, SenderEmailNotify3, SenderEmailAddress4, SenderEmailNotify4, ResidentialStatus, EmailText, SignatureOption, SaturdayDelivery, PaymentType, BillToCompany, BillToAttention, BillToAddress1, BillToAddress2, BillToCity, BillToState, BillToZip, ReturnAddressCompany, ReturnAddressAttention, ReturnAddressLine1, ReturnAddressLine2, ReturnAddressCity, ReturnAddressState, ReturnAddressZip, Instructions) VALUES ('" +
+                string str = "INSERT INTO dbo.Shipments (Reference1, Reference2, Reference3, Reference4, Reference5, VoidIndicator, CompanyName, AttentionTo, Address1, Address2, Address3, City, ShipState, ZipCode, Country, ShippedBy, TrackingNumber, ShipWeight, TotalContainers, ThisContainer, CarrierCharge, ListCharge, SourceSystem, SQLStatus, ShipDate, LastModified, BOL, CarrierNumber, PlantNumber, PhoneNumber, ServiceType, CarrierName, ServiceName, SenderAccount, AdditionalCharge, ProcessDate, TerminalID, ProcessStatus, ThirdPartyAccount, CustomerReference, SenderEmailAddress1, SenderEmailNotify1, SenderEmailAddress2, SenderEmailNotify2, SenderEmailAddress3, SenderEmailNotify3, SenderEmailAddress4, SenderEmailNotify4, ResidentialStatus, EmailText, SignatureOption, SaturdayDelivery, PaymentType, BillToCompany, BillToAttention, BillToAddress1, BillToAddress2, BillToCity, BillToState, BillToZip, ReturnAddressCompany, ReturnAddressAttention, ReturnAddressLine1, ReturnAddressLine2, ReturnAddressCity, ReturnAddressState, ReturnAddressZip, ReturnAddressPhone, ReturnAddressEmail, Instructions) VALUES ('" +
                 objES.objDetails.strDeliveryDocNumber + "', '" +               // Reference1
                 objES.objDetails.strPONumber + "', '" +                        // Reference2 
                 objES.objDetails.strInvoiceNumber + "', '" +                   // Reference3
@@ -443,6 +444,8 @@ namespace LexisGlobal
                 objES.objShipFrom.strCity + "', '" +                           // ReturnAddressCity
                 objES.objShipFrom.strState + "', '" +                          // ReturnAddressState
                 objES.objShipFrom.strPostalCode + "', '" +                     // ReturnAddressZip
+                objES.objShipFrom.strPhoneNumber + "', '" +                    // ReturnAddressPhone
+                objES.objShipFrom.strEmailAddress + "', '" +                   // ReturnAddressEmail
                 " " + "'" +                                                    // Instructions
                 ")";
 

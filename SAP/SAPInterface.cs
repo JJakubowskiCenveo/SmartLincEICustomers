@@ -54,12 +54,14 @@ namespace SAP
         {
             try
             {
-                objSQLCon = new SqlConnection();
-                objSQLCon.ConnectionString =
+                objSQLCon = new SqlConnection
+                {
+                    ConnectionString =
                     "Server=" + objEC.strDSNName + ";" +
                     "Database=" + objEC.strDatabase + ";" +
                     "User Id=" + objEC.strUserID + ";" +
-                    "Password=" + objEC.strPassword + ";";
+                    "Password=" + objEC.strPassword + ";"
+                };
             }
             catch (Exception ex)
             {
@@ -70,10 +72,12 @@ namespace SAP
 
         private EntityResponseStatus SetResponse(string strMessage, string strError, ResponseStatusType eResponseType)
         {
-            EntityResponseStatus objResponse = new EntityResponseStatus();
-            objResponse.Message = strMessage;
-            objResponse.StatusType = eResponseType;
-            objResponse.Error = strError;
+            EntityResponseStatus objResponse = new EntityResponseStatus
+            {
+                Message = strMessage,
+                StatusType = eResponseType,
+                Error = strError
+            };
             return objResponse;
         }
 

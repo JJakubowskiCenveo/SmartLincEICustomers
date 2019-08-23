@@ -3,17 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.3
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLincEI", "SmartLincEINew\SmartLincEI.csproj", "{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS", "CMS\CMS.csproj", "{B4517A58-FD24-42E8-88F3-19BCBFAC998E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHarness", "TestHarness\TestHarness.csproj", "{B42A38CB-27DB-44F6-B46B-682F59EE2F20}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CMS", "ClassLibrary2\CMS.csproj", "{B4517A58-FD24-42E8-88F3-19BCBFAC998E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexis", "ClassLibrary3\Lexis.csproj", "{585F0013-945A-4A01-9558-D3AF66CFAFA6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lexis", "Lexis\Lexis.csproj", "{585F0013-945A-4A01-9558-D3AF66CFAFA6}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LexisGlobal", "LexisGlobal\LexisGlobal.csproj", "{1548C927-F91F-4CC5-BCA7-7EE12C03CFFF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAP", "ClassLibrary1\SAP.csproj", "{5941FF2E-955B-404B-81C6-922BF7913516}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SAP", "SAP\SAP.csproj", "{5941FF2E-955B-404B-81C6-922BF7913516}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartLincEI", "SmartLincEINew\SmartLincEI.csproj", "{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestHarness", "TestHarness\TestHarness.csproj", "{B42A38CB-27DB-44F6-B46B-682F59EE2F20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,26 +25,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|x86.ActiveCfg = Release|Any CPU
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|x86.ActiveCfg = Debug|x86
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|x86.Build.0 = Debug|x86
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|Any CPU.ActiveCfg = Release|x86
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|Mixed Platforms.Build.0 = Release|x86
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|x86.ActiveCfg = Release|x86
-		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|x86.Build.0 = Release|x86
 		{B4517A58-FD24-42E8-88F3-19BCBFAC998E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4517A58-FD24-42E8-88F3-19BCBFAC998E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4517A58-FD24-42E8-88F3-19BCBFAC998E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
@@ -93,6 +73,30 @@ Global
 		{5941FF2E-955B-404B-81C6-922BF7913516}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{5941FF2E-955B-404B-81C6-922BF7913516}.Release|x86.ActiveCfg = Release|Any CPU
 		{5941FF2E-955B-404B-81C6-922BF7913516}.Release|x86.Build.0 = Release|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Debug|x86.Build.0 = Debug|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|x86.ActiveCfg = Release|Any CPU
+		{07B0D6E0-147F-4006-ACE8-3EBA2D4BE32F}.Release|x86.Build.0 = Release|Any CPU
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|Mixed Platforms.Build.0 = Debug|x86
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|x86.ActiveCfg = Debug|x86
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Debug|x86.Build.0 = Debug|x86
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|Mixed Platforms.ActiveCfg = Release|x86
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|Mixed Platforms.Build.0 = Release|x86
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|x86.ActiveCfg = Release|x86
+		{B42A38CB-27DB-44F6-B46B-682F59EE2F20}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TestHarness</RootNamespace>
     <AssemblyName>TestHarness</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -98,7 +98,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SmartLincInterface, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SmartLincInterface, Version=8.3.11.3, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SmartLincInterface.dll</HintPath>
     </Reference>
@@ -175,21 +175,25 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ClassLibrary1\SAP.csproj">
-      <Project>{5941ff2e-955b-404b-81c6-922bf7913516}</Project>
-      <Name>SAP</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ClassLibrary2\CMS.csproj">
+    <ProjectReference Include="..\CMS\CMS.csproj">
       <Project>{b4517a58-fd24-42e8-88f3-19bcbfac998e}</Project>
       <Name>CMS</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ClassLibrary3\Lexis.csproj">
-      <Project>{585f0013-945a-4a01-9558-d3af66cfafa6}</Project>
-      <Name>Lexis</Name>
     </ProjectReference>
     <ProjectReference Include="..\LexisGlobal\LexisGlobal.csproj">
       <Project>{1548c927-f91f-4cc5-bca7-7ee12c03cfff}</Project>
       <Name>LexisGlobal</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Lexis\Lexis.csproj">
+      <Project>{585f0013-945a-4a01-9558-d3af66cfafa6}</Project>
+      <Name>Lexis</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SAP\SAP.csproj">
+      <Project>{5941ff2e-955b-404b-81c6-922bf7913516}</Project>
+      <Name>SAP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmartLincEINew\SmartLincEI.csproj">
+      <Project>{07b0d6e0-147f-4006-ace8-3eba2d4be32f}</Project>
+      <Name>SmartLincEI</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
