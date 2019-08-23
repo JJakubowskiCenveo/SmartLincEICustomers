@@ -305,6 +305,9 @@ namespace CMS
             Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc2, out intBOL);
             Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc3, out intCarrier);
             Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc4, out intPlant);
+            string strInstructions = objES.objDetails.strShippingInstructions;
+            if (!string.IsNullOrWhiteSpace(objES.objDetails.strShippingInstructions) && objES.objDetails.strShippingInstructions.Length >= 255)
+                strInstructions = objES.objDetails.strShippingInstructions.Substring(0, 255);
             dtHeader = GetShipmentInformation(objES.objDetails.strDeliveryDocNumber);
             do
             {
@@ -390,8 +393,8 @@ namespace CMS
                     sqlCMD.Parameters.AddWithValue("@FIRACT", TestIfNull(objES.objShipFrom.strCity));
                     sqlCMD.Parameters.AddWithValue("@FIRAST", TestIfNull(objES.objShipFrom.strState));
                     sqlCMD.Parameters.AddWithValue("@FIRAZP", TestIfNull(objES.objShipFrom.strPostalCode));
-                    sqlCMD.Parameters.AddWithValue("@FIINST", " ");
-
+                    sqlCMD.Parameters.AddWithValue("@FIINST", TestIfNull(strInstructions));
+                    
 
                     string strQuery = sqlCMD.CommandText;
                     foreach (iDB2Parameter p in sqlCMD.Parameters)
@@ -442,6 +445,9 @@ namespace CMS
             Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc2, out intBOL);
             Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc3, out intCarrier);
             Int32.TryParse(objES.objDetails.objMiscellaneous.strMisc4, out intPlant);
+            string strInstructions = objES.objDetails.strShippingInstructions;
+            if (!string.IsNullOrWhiteSpace(objES.objDetails.strShippingInstructions) && objES.objDetails.strShippingInstructions.Length >= 255)
+                strInstructions = objES.objDetails.strShippingInstructions.Substring(0, 255);
             dtHeader = GetShipmentInformation(objES.objDetails.strDeliveryDocNumber);
             do
             {
@@ -527,7 +533,7 @@ namespace CMS
                     sqlCMD.Parameters.AddWithValue("@FIRACT", TestIfNull(objES.objShipFrom.strCity));
                     sqlCMD.Parameters.AddWithValue("@FIRAST", TestIfNull(objES.objShipFrom.strState));
                     sqlCMD.Parameters.AddWithValue("@FIRAZP", TestIfNull(objES.objShipFrom.strPostalCode));
-                    sqlCMD.Parameters.AddWithValue("@FIINST", " ");
+                    sqlCMD.Parameters.AddWithValue("@FIINST", TestIfNull(strInstructions));
 
 
                     string strQuery = sqlCMD.CommandText;
