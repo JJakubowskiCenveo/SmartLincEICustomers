@@ -285,6 +285,9 @@ namespace LexisGlobal
             bool InsertStatus;
             int x = 0;
             int intTotalContainers = objES.lstContainer.Count();
+            string strInstructions = objES.objDetails.strShippingInstructions;
+            if (!string.IsNullOrWhiteSpace(objES.objDetails.strShippingInstructions) && objES.objDetails.strShippingInstructions.Length >= 255)
+                strInstructions = objES.objDetails.strShippingInstructions.Substring(0, 255);
             dtHeader = GetShipmentInformation(objES.objDetails.strDeliveryDocNumber);
             do
             {
@@ -358,7 +361,7 @@ namespace LexisGlobal
                 objES.objShipFrom.strPostalCode + "', '" +                     // ReturnAddressZip
                 objES.objShipFrom.strPhoneNumber + "', '" +                    // ReturnAddressPhone
                 objES.objShipFrom.strEmailAddress + "', '" +                   // ReturnAddressEmail
-                " " + "'" +                                                    // Instructions
+                strInstructions + "'" +                                        // Instructions
                 ")";
 
                 InsertStatus = ExecuteQuery(str);
@@ -373,6 +376,9 @@ namespace LexisGlobal
             bool UpdateStatus;
             int x = 0;
             int intTotalContainers = objES.lstContainer.Count();
+            string strInstructions = objES.objDetails.strShippingInstructions;
+            if (!string.IsNullOrWhiteSpace(objES.objDetails.strShippingInstructions) && objES.objDetails.strShippingInstructions.Length >= 255)
+                strInstructions = objES.objDetails.strShippingInstructions.Substring(0, 255);
             dtHeader = GetShipmentInformation(objES.objDetails.strDeliveryDocNumber);
             do
             {
@@ -446,7 +452,7 @@ namespace LexisGlobal
                 objES.objShipFrom.strPostalCode + "', '" +                     // ReturnAddressZip
                 objES.objShipFrom.strPhoneNumber + "', '" +                    // ReturnAddressPhone
                 objES.objShipFrom.strEmailAddress + "', '" +                   // ReturnAddressEmail
-                " " + "'" +                                                    // Instructions
+                strInstructions + "'" +                                        // Instructions
                 ")";
 
                 UpdateStatus = ExecuteQuery(str);
