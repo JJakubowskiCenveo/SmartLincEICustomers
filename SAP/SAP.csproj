@@ -33,7 +33,7 @@
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="SmartLincInterface, Version=8.3.11.3, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="SmartLincInterface, Version=9.0.0.14, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SmartLincInterface.dll</HintPath>
     </Reference>

@@ -347,7 +347,6 @@ namespace SAP
                     sqlCMD.Parameters.AddWithValue("@ProcessDate", " ");
                     sqlCMD.Parameters.AddWithValue("@TerminalID", " ");
                     sqlCMD.Parameters.AddWithValue("@ProcessStatus", " ");
-                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(objES.objBillTo.strAccountNumber));
                     sqlCMD.Parameters.AddWithValue("@CustomerReference", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailAddress1", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailNotify1", " ");
@@ -361,14 +360,29 @@ namespace SAP
                     sqlCMD.Parameters.AddWithValue("@EmailText", " ");
                     sqlCMD.Parameters.AddWithValue("@SignatureOption", " ");
                     sqlCMD.Parameters.AddWithValue("@SaturdayDelivery", " ");
-//                    sqlCMD.Parameters.AddWithValue("@PaymentType", PayTypeToCMS(objES.objShipMethod.strPaymentTerms));
-                    sqlCMD.Parameters.AddWithValue("@BillToCompany", TestIfNull(objES.objBillTo.strCompanyName));
-                    sqlCMD.Parameters.AddWithValue("@BillToAttention", TestIfNull(objES.objBillTo.strContactName));
-                    sqlCMD.Parameters.AddWithValue("@BillToAddress1", TestIfNull(objES.objBillTo.strAddressLine1));
-                    sqlCMD.Parameters.AddWithValue("@BillToAddress2", TestIfNull(objES.objBillTo.strAddressLine2));
-                    sqlCMD.Parameters.AddWithValue("@BillToCity", TestIfNull(objES.objBillTo.strCity));
-                    sqlCMD.Parameters.AddWithValue("@BillToState", TestIfNull(objES.objBillTo.strState));
-                    sqlCMD.Parameters.AddWithValue("@BillToZip", TestIfNull(objES.objBillTo.strPostalCode));
+                    // sqlCMD.Parameters.AddWithValue("@PaymentType", PayTypeToCMS(objES.objShipMethod.strPaymentTerms));
+                    if (objES.objBillTo != null)
+                    {
+                        sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(objES.objBillTo.strAccountNumber));
+                        sqlCMD.Parameters.AddWithValue("@BillToCompany", TestIfNull(objES.objBillTo.strCompanyName));
+                        sqlCMD.Parameters.AddWithValue("@BillToAttention", TestIfNull(objES.objBillTo.strContactName));
+                        sqlCMD.Parameters.AddWithValue("@BillToAddress1", TestIfNull(objES.objBillTo.strAddressLine1));
+                        sqlCMD.Parameters.AddWithValue("@BillToAddress2", TestIfNull(objES.objBillTo.strAddressLine2));
+                        sqlCMD.Parameters.AddWithValue("@BillToCity", TestIfNull(objES.objBillTo.strCity));
+                        sqlCMD.Parameters.AddWithValue("@BillToState", TestIfNull(objES.objBillTo.strState));
+                        sqlCMD.Parameters.AddWithValue("@BillToZip", TestIfNull(objES.objBillTo.strPostalCode));
+                    }
+                    else
+                    {
+                        sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToCompany", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToAttention", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToAddress1", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToAddress2", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToCity", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToState", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToZip", " ");
+                    }
                     sqlCMD.Parameters.AddWithValue("@ReturnAddressCompany", TestIfNull(objES.objShipFrom.strCompanyName));
                     sqlCMD.Parameters.AddWithValue("@ReturnAddressAttention", TestIfNull(objES.objShipFrom.strContactName));
                     sqlCMD.Parameters.AddWithValue("@ReturnAddressLine1", TestIfNull(objES.objShipFrom.strAddressLine1));
@@ -490,7 +504,6 @@ namespace SAP
                     sqlCMD.Parameters.AddWithValue("@ProcessDate", " ");
                     sqlCMD.Parameters.AddWithValue("@TerminalID", " ");
                     sqlCMD.Parameters.AddWithValue("@ProcessStatus", " ");
-                    sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(objES.objBillTo.strAccountNumber));
                     sqlCMD.Parameters.AddWithValue("@CustomerReference", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailAddress1", " ");
                     sqlCMD.Parameters.AddWithValue("@SenderEmailNotify1", " ");
@@ -504,14 +517,29 @@ namespace SAP
                     sqlCMD.Parameters.AddWithValue("@EmailText", " ");
                     sqlCMD.Parameters.AddWithValue("@SignatureOption", " ");
                     sqlCMD.Parameters.AddWithValue("@SaturdayDelivery", " ");
-//                    sqlCMD.Parameters.AddWithValue("@PaymentType", PayTypeToCMS(objES.objShipMethod.strPaymentTerms));
-                    sqlCMD.Parameters.AddWithValue("@BillToCompany", TestIfNull(objES.objBillTo.strCompanyName));
-                    sqlCMD.Parameters.AddWithValue("@BillToAttention", TestIfNull(objES.objBillTo.strContactName));
-                    sqlCMD.Parameters.AddWithValue("@BillToAddress1", TestIfNull(objES.objBillTo.strAddressLine1));
-                    sqlCMD.Parameters.AddWithValue("@BillToAddress2", TestIfNull(objES.objBillTo.strAddressLine2));
-                    sqlCMD.Parameters.AddWithValue("@BillToCity", TestIfNull(objES.objBillTo.strCity));
-                    sqlCMD.Parameters.AddWithValue("@BillToState", TestIfNull(objES.objBillTo.strState));
-                    sqlCMD.Parameters.AddWithValue("@BillToZip", TestIfNull(objES.objBillTo.strPostalCode));
+                    //                    sqlCMD.Parameters.AddWithValue("@PaymentType", PayTypeToCMS(objES.objShipMethod.strPaymentTerms));
+                    if (objES.objBillTo != null)
+                    {
+                        sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", TestIfNull(objES.objBillTo.strAccountNumber));
+                        sqlCMD.Parameters.AddWithValue("@BillToCompany", TestIfNull(objES.objBillTo.strCompanyName));
+                        sqlCMD.Parameters.AddWithValue("@BillToAttention", TestIfNull(objES.objBillTo.strContactName));
+                        sqlCMD.Parameters.AddWithValue("@BillToAddress1", TestIfNull(objES.objBillTo.strAddressLine1));
+                        sqlCMD.Parameters.AddWithValue("@BillToAddress2", TestIfNull(objES.objBillTo.strAddressLine2));
+                        sqlCMD.Parameters.AddWithValue("@BillToCity", TestIfNull(objES.objBillTo.strCity));
+                        sqlCMD.Parameters.AddWithValue("@BillToState", TestIfNull(objES.objBillTo.strState));
+                        sqlCMD.Parameters.AddWithValue("@BillToZip", TestIfNull(objES.objBillTo.strPostalCode));
+                    }
+                    else
+                    {
+                        sqlCMD.Parameters.AddWithValue("@ThirdPartyAccount", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToCompany", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToAttention", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToAddress1", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToAddress2", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToCity", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToState", " ");
+                        sqlCMD.Parameters.AddWithValue("@BillToZip", " ");
+                    }
                     sqlCMD.Parameters.AddWithValue("@ReturnAddressCompany", TestIfNull(objES.objShipFrom.strCompanyName));
                     sqlCMD.Parameters.AddWithValue("@ReturnAddressAttention", TestIfNull(objES.objShipFrom.strContactName));
                     sqlCMD.Parameters.AddWithValue("@ReturnAddressLine1", TestIfNull(objES.objShipFrom.strAddressLine1));
